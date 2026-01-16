@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variables for quick palette adjustments */
+:root {
+  --rimuru-sky: #38dbe6;
+  --rimuru-slate: #cbd5e1;
+  --bg-dark: #071617;
+  --card-bg: #0b1a1a;
+}
+
+/* Dark-first UI */
+html.dark {
+  color-scheme: dark;
+  background-color: var(--bg-dark);
+}
+
+/* Simple reset for body */
+body {
+  @apply bg-[#071617] text-slate-200 antialiased;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+}
+
+/* Rimuru logo / accent classes */
+.rimuru-accent {
+  background: linear-gradient(135deg, var(--rimuru-sky) 0%, #6be8dd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Slime pulse extra visual touch (composed with Tailwind animation) */
+.slime {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 30%),
+              linear-gradient(135deg, rgba(56,219,230,0.18), rgba(62,166,172,0.14));
+  box-shadow: 0 6px 30px rgba(28, 199, 204, 0.12);
+  animation: slime-pulse 1.6s ease-in-out infinite;
+}
+
+/* Card backdrop */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 640px) {
+  .slime { width: 2.5rem; height: 2.5rem; }
+}
